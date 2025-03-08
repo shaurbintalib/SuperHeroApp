@@ -60,5 +60,21 @@ namespace SuperHeroApp.Controllers
             _context.SaveChanges();
             return Ok(await _context.SuperHeroes.ToListAsync());
         }
+
+        [HttpDelete]
+        public async Task<ActionResult<List<SuperHero>>> DeleteHero(int id)
+        {
+
+            var herodb = await _context.SuperHeroes.FindAsync(id);
+            if (herodb is null)
+            {
+                return BadRequest("Hero not found");
+            }
+
+            _context.SuperHeroes.Remove(herodb);
+            await _context.SaveChangesAsync();
+
+            return Ok(await _context.SuperHeroes.ToListAsync());
+        }
     }
 }
