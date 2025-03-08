@@ -13,3 +13,12 @@ GET {{SuperHeroApp_HostAddress}}/weatherforecast
 GET {{SuperHeroApp_HostAddress}}/weatherforecast
 
 ###
+
+POST {{SuperHeroApp_HostAddress}}/api/superhero
+Content-Type: application/json
+
+{
+  //SuperHero
+}
+
+###
